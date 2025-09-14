@@ -1,4 +1,6 @@
-import { Button } from "@/components/ui/button"
+
+
+import { Globe } from 'lucide-react';
 import {
   Dialog,
 //   DialogClose,
@@ -11,11 +13,19 @@ import {
 } from "@/components/ui/dialog"
 
 
-export function NavbarHost() {
+export function NavbarTranslator() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="ghost" className="text-[15px]"  >Become a host </Button>
+        <div className="cursor-pointer w-10 h-10 rounded-full
+         flex justify-center items-center align-middle bg-[#f0f0f0] 
+         hover:bg-[#e6e5e5] ease-in-out
+         ">
+            <Globe className="w-5" />
+
+        </div>
+        
+
       </DialogTrigger>
       <DialogContent className="sm:max-w-md">
         <DialogHeader>

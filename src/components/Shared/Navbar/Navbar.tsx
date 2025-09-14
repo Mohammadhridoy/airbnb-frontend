@@ -4,6 +4,8 @@ import React from 'react';
 import logo from '../../../../public/airbnb.png'
 import { Button } from '@/components/ui/button';
 import { NavbarHost } from '@/components/Modules/NavbarHost';
+import { NavbarTranslator } from '@/components/Modules/NavbarTranslator';
+import { NavbarDropdownMenu } from '@/components/Modules/NavbarDropdownMenu';
 
 const Navbar = () => {
     return (
@@ -36,7 +38,7 @@ const Navbar = () => {
 
 
             {/* Navbar right*/}
-            <div className='lg:pr-8' >
+            <div className='lg:pr-8 flex flex-row gap-5 align-middle justify-start ' >
                 {/* host */}
                 <div>
                     <NavbarHost/>
@@ -44,11 +46,11 @@ const Navbar = () => {
                 </div>
                 {/* language Translator */}
                 <div>
-
+                    <NavbarTranslator/>
                 </div>
                 {/* navigation Icon */}
                 <div>
-
+                    <NavbarDropdownMenu/>
                 </div>
             </div>
             </div>
