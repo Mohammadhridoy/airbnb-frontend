@@ -1,7 +1,6 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import logo from '../../../../public/airbnb.png'
 import { NavbarHost } from '@/components/Modules/NavbarHost';
 import { NavbarTranslator } from '@/components/Modules/NavbarTranslator';
@@ -11,31 +10,33 @@ import  homeGif from "../../../../public/Home.json"
 import experienceGif from "../../../../public/Hot Air Balloon.json"
 import servicesGif from "../../../../public/ServisHero Loading.json"
 import { usePathname } from 'next/navigation';
-import { useInView } from 'react-intersection-observer';
+
+import * as motion from "motion/react-client"
+import { useEffect, useRef } from 'react';
+
 
 const Navbar = () => {
     const pathname = usePathname()
-
-    const {ref, inView} = useInView({
-        triggerOnce: true,
-        threshold: 0.3
-    })
+   
+   
 
     const menuItems = [
         { name:"Homes", href:"/", animation: homeGif},
          { name:"Experiences", href:"/experiences", animation: experienceGif},
-         {name:"Services", href:"/services", animation:servicesGif}
+         {name:"Services", href:"/services", animation: servicesGif}
 
     ]
 
+
+
     return (
-        <div className='w-full border-b'>
+        <div className=' border-b'>
             {/* Navbar upper section */}
             <div className='md:flex items-center justify-between mx-auto md:px-5 md:py-3'>
                  {/* Navbar left*/}
 
 
-               <div className=''>
+               <div >
                   <Link href='/'>
                  <Image src={logo}
                  alt='logo'
@@ -48,53 +49,75 @@ const Navbar = () => {
                </div>
             
             {/* Navbar center */}
-           <div className=' grid grid-cols-3 gap-3 py-4' >
+           <div className='grid grid-cols-3' >
           
             {
               menuItems.map((item, index)=>{
                 const isActive = pathname === item.href
+                const lottieRef = useRef<any>(null)
+
+                useEffect(()=>{
+                  if(isActive && lottieRef.current){
+                    lottieRef.current.stop()
+                    lottieRef.current.play()
+                  }
+
+                }, [isActive])
+
 
                 return(
-                 <Link 
-                 ref={ref} 
-                 key={index}
+               
+                      <Link 
+                  
+                key={index}
                  href={item.href} 
                  className= {
-                    ` relative  flex  flex-row justify-center items-center 
-                 
+                  
+                    `relative  flex  flex-row justify-center items-center 
                  `
                  }
                  >
              
-             {inView && (
-                   <Lottie
+            
+                       <Lottie
+                   lottieRef={lottieRef}
                 animationData={item.animation}
                 loop={false}
+                autoPlay={false}
                 className={`w-14 h-14
-                ${isActive?" ":"hover:scale-150 transition-transform"}
+                ${!isActive?  "hover:scale-150 transition-transform" : ""}
                 `}
                 />
-             )}
 
                 
               <h1 className={
-                `text-base font-semibold mt-2 
+                `text-base font-semibold
               hover:text-gray-400
               ${isActive?"text-black": "text-gray-400"}
               `
               }>{item.name}</h1>
-              <span
-              className={`
-                absolute bottom-0 left-0 h-[2px] bg-black transition-all 
-              duration-200 ease-in-out 
-                ${isActive? 'w-full': 'w-0 hover:w-full'}
-                `}
-              />
+
+
+              {
+                isActive && (
+                <motion.span
+                 layoutId='underline'
+                  className={`
+                      absolute left-0 -bottom-1 h-[3px] bg-black w-[100%] rounded-full
+                     
+                    `}
+                    transition={{type:'spring', stiffness:600, damping:30}}
+                  />
+                )
+              }
+
               
               </Link>
+                
               )
               })
             }
+          
           
            </div>
 
