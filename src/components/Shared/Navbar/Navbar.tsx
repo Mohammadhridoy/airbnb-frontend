@@ -13,6 +13,7 @@ import { usePathname } from 'next/navigation';
 
 import * as motion from "motion/react-client"
 import { useEffect, useRef } from 'react';
+import NavbarSection from '@/components/Modules/NavBarLowerSection/NavbarSection';
 
 
 const Navbar = () => {
@@ -30,7 +31,7 @@ const Navbar = () => {
 
 
     return (
-        <div className=' border-b'>
+        <div className=' border-b bg-[#ffffff]'>
             {/* Navbar upper section */}
             <div className='md:flex items-center justify-between mx-auto md:px-5 md:py-3'>
                  {/* Navbar left*/}
@@ -49,7 +50,7 @@ const Navbar = () => {
                </div>
             
             {/* Navbar center */}
-           <div className='grid grid-cols-3' >
+           <div className='grid grid-cols-3 gap-5' >
           
             {
               menuItems.map((item, index)=>{
@@ -84,7 +85,7 @@ const Navbar = () => {
                 animationData={item.animation}
                 loop={false}
                 autoPlay={false}
-                className={`w-14 h-14
+                className={`w-14 h-14 
                 ${!isActive?  "hover:scale-150 transition-transform" : ""}
                 `}
                 />
@@ -144,12 +145,11 @@ const Navbar = () => {
 
             {/* search function */}
             {/* Navbar lower section */}
-            <div className='md:flex justify-center align-middle hidden md:py-5'>
-                ddddddddddddddddddddddddddddddddddd
-                ddddddddddddddddddddddddddddddd
-                ddddddddddddddddddddddddddddddd
-                ddddddddddddddddddddddddddddddd
+            <div className='md:flex justify-center align-middle hidden md:pt-2 md:pb-10 w-full'>
+               
                 
+                <NavbarSection/>
+
              </div>
           
 
