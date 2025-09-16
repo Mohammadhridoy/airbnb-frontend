@@ -14,6 +14,7 @@ import { usePathname } from 'next/navigation';
 import * as motion from "motion/react-client"
 import { useEffect, useRef } from 'react';
 import NavbarSection from '@/components/Modules/NavBarLowerSection/NavbarSection';
+import { Search } from 'lucide-react';
 
 
 const Navbar = () => {
@@ -31,9 +32,9 @@ const Navbar = () => {
 
 
     return (
-        <div className=' border-b bg-[#ffffff]'>
+        <div className=' border-b  bg-[#ffffff] shadow-md  md:shadow-none'>
             {/* Navbar upper section */}
-            <div className='md:flex items-center justify-between mx-auto md:px-5 md:py-3'>
+            <div className='md:flex items-center justify-between mx-auto md:pr-4 lg:px-5 md:py-3'>
                  {/* Navbar left*/}
 
 
@@ -48,9 +49,21 @@ const Navbar = () => {
                  
                  </Link>
                </div>
+
+                 <div className='md:hidden flex justify-center align-middle p-5 '>
+                    <div className=' w-full h-[3.7rem] rounded-full shadow-lg border bg-white '>
+                        <div className='flex justify-center align-middle items-center mt-4 gap-2'>
+                          <Search />
+                          <h1 className='font-semibold  '>Start your search</h1>
+                        </div>
+
+
+                    </div>
+
+                 </div>
             
             {/* Navbar center */}
-           <div className='grid grid-cols-3 gap-5' >
+           <div className='grid grid-cols-3 gap-1 lg:gap-5  ml-8 md:ml-0  pt-1 md:pt-0  md:px-4 md:mr-4 lg:mr-0   lg:px-0' >
           
             {
               menuItems.map((item, index)=>{
@@ -74,7 +87,7 @@ const Navbar = () => {
                  href={item.href} 
                  className= {
                   
-                    `relative  flex  flex-row justify-center items-center 
+                    `relative  md:flex  md:flex-row justify-center items-center 
                  `
                  }
                  >
@@ -92,7 +105,7 @@ const Navbar = () => {
 
                 
               <h1 className={
-                `text-base font-semibold
+                `text-[14px] md:text-base md:font-semibold
               hover:text-gray-400
               ${isActive?"text-black": "text-gray-400"}
               `
@@ -104,7 +117,7 @@ const Navbar = () => {
                 <motion.span
                  layoutId='underline'
                   className={`
-                      absolute left-0 -bottom-1 h-[3px] bg-black w-[100%] rounded-full
+                      absolute left-0 -bottom-1 h-[3px] bg-black w-[65%] md:w-[100%] rounded-full
                      
                     `}
                     transition={{type:'spring', stiffness:600, damping:30}}
@@ -125,14 +138,14 @@ const Navbar = () => {
 
 
             {/* Navbar right*/}
-            <div className='lg:pr-8 flex flex-row gap-5 align-middle justify-start ' >
+            <div className=' hidden  lg:pr-8 md:flex flex-row gap-5 align-middle justify-start ' >
                 {/* host */}
-                <div>
-                    <NavbarHost/>
+                <div className='md:hidden lg:flex '>
+                    <NavbarHost />
 
                 </div>
                 {/* language Translator */}
-                <div>
+                <div >
                     <NavbarTranslator/>
                 </div>
                 {/* navigation Icon */}
@@ -145,12 +158,14 @@ const Navbar = () => {
 
             {/* search function */}
             {/* Navbar lower section */}
-            <div className='md:flex justify-center align-middle hidden md:pt-2 md:pb-10 w-full'>
+            <div className='   md:flex justify-center align-middle hidden  md:px-5 lg:px-0 md:pt-2 md:pb-10 w-full'>
                
                 
                 <NavbarSection/>
 
              </div>
+
+           
           
 
           
