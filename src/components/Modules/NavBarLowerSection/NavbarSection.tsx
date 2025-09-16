@@ -56,7 +56,7 @@ const NavbarSection = () => {
                            
                             {/* who  */}
                              
-                           <div className=' flex-1 cursor-pointer flex  justify-between align-middle '>
+                           <div className=' flex-1 cursor-pointer flex  justify-between align-middle  '>
                          
                          <NavBarGuests></NavBarGuests>
                                 <Button size="icon"
