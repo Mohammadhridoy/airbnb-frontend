@@ -37,14 +37,14 @@ interface props {
 
 
 
-const HomeSection1 = ({arrayOfKualaLumpur}:props) => {
+const HomeSection2 = ({arrayOfKualaLumpur}:props) => {
 
 
 
 
     return (
         <div className='relative'>
-            <h1 className=' text-[18px]  md:text-2xl font-semibold'>Popular homes in Kuala Lumpur  </h1>
+            <h1 className=' text-[18px]  md:text-2xl font-semibold'>Available next month in Bangkok  </h1>
             <div >
                  <Carousel
       opts={{
@@ -91,4 +91,4 @@ const HomeSection1 = ({arrayOfKualaLumpur}:props) => {
     );
 };
 
-export default HomeSection1;
+export default HomeSection2;
