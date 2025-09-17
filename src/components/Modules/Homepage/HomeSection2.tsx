@@ -70,7 +70,7 @@ const HomeSection2 = ({arrayOfKualaLumpur}:props) => {
                 </CardContent>
                 <div className="absolute top-2 left-1 hidden  xl:flex justify-between align-middle gap-12">
                   <h1 className="text-[12px] w-24 h-7 text-black p-1 rounded-full bg-gray-100  ">Guest favourite</h1>
-                  <Heart className="<Heart />" />
+                  <Heart className="cursor-pointer" />
                 </div>
               </Card>
               <div className='py-2'>

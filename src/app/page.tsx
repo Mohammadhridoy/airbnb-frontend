@@ -1,5 +1,5 @@
 
-import HomeSection1 from '@/components/Modules/Homepage/HomeSection1';
+
 import MainHome from '@/components/Modules/Homepage/MainHome';
 import React from 'react';
 
