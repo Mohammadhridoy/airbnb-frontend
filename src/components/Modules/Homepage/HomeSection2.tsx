@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import Image from 'next/image';
-import { Star } from 'lucide-react';
+import { Heart, Star } from 'lucide-react';
 
 
 
@@ -44,7 +44,7 @@ const HomeSection2 = ({arrayOfKualaLumpur}:props) => {
 
     return (
         <div className='relative'>
-            <h1 className=' text-[18px]  md:text-2xl font-semibold'>Available next month in Bangkok  </h1>
+            <h1 className=' text-[18px]  md:text-2xl font-semibold'>Available next month in Bangkok </h1>
             <div >
                  <Carousel
       opts={{
@@ -52,14 +52,14 @@ const HomeSection2 = ({arrayOfKualaLumpur}:props) => {
       }}
       className="w-full py-10 md:py-5"
     >
-      <CarouselContent className='w-[41%] h-[20%] '>
+      <CarouselContent className='w-[47%] h-[20%] '>
         {arrayOfKualaLumpur.map(( items:listing ) => (
           
          
 
           <CarouselItem key={items?._id} className="md:basis-1/2 lg:basis-1/3">
             <div className="p-1">
-              <Card className='shadow-none py-0  '>
+              <Card className='shadow-none py-0  relative '>
                 <CardContent className="flex aspect-square items-center justify-center px-0">
 
                     <img 
@@ -68,6 +68,10 @@ const HomeSection2 = ({arrayOfKualaLumpur}:props) => {
 
                  
                 </CardContent>
+                <div className="absolute top-2 left-1 hidden  xl:flex justify-between align-middle gap-12">
+                  <h1 className="text-[12px] w-24 h-7 text-black p-1 rounded-full bg-gray-100  ">Guest favourite</h1>
+                  <Heart className="<Heart />" />
+                </div>
               </Card>
               <div className='py-2'>
                 <h1 className='font-semibold '>{items.title}</h1>

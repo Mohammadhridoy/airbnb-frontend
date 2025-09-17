@@ -31,16 +31,15 @@ const MainHome = ({listings}:props) => {
     
 
     const arrayOfKualaLumpur = listings.filter((items )=> items.city.toLowerCase() =="kuala lumpur")
-    console.log(arrayOfKualaLumpur);
+  
      const arrayOfBangkok = listings.filter((items )=> items.city.toLowerCase() =="bangkok")
-     console.log(arrayOfBangkok);
+    
     
 
 
     return (
         <div>
             <HomeSection1  arrayOfKualaLumpur={arrayOfKualaLumpur} />
-            {/* <HomeSection1  /> */}
             <HomeSection2  arrayOfKualaLumpur={arrayOfBangkok}/>
         </div>
     );
